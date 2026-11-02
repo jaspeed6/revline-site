@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c10">
+  <meta name="description" content="REVLINE is an automotive community app in development, bringing together vehicle builds, car meets, a community marketplace, and more.">
+  <title>REVLINE | Built for the Drive</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0b0c10; --ink:#f5f5f7; --muted:#a7a9b2; --line:#30313a; --red:#e52738; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.55; }
+    a { color:inherit; }
+    .wrap { max-width:1180px; margin:auto; padding:0 24px; }
+    header { position:relative; z-index:2; border-bottom:1px solid #ffffff17; background:#0b0c10d9; }
+    .nav { min-height:79px; display:flex; justify-content:space-between; align-items:center; gap:18px; }
+    .brand { text-decoration:none; font-size:1.5rem; font-weight:900; letter-spacing:.115em; }
+    .brand span { color:var(--red); }
+    .nav-links { display:flex; align-items:center; gap:24px; }
+    .nav-links a { text-decoration:none; font-size:.9rem; color:#d7d7dc; }
+    .nav-links a:hover, .nav-links a:focus { color:white; }
+    .label { display:inline-flex; gap:9px; align-items:center; border:1px solid #e527384d; color:#ffc0c5; border-radius:50px; background:#e5273813; padding:7px 12px; font-size:.73rem; font-weight:800; text-transform:uppercase; letter-spacing:.13em; }
+    .label::before { content:""; display:inline-block; width:7px; height:7px; background:var(--red); border-radius:50%; box-shadow:0 0 14px #e52738aa; }
+    .hero { overflow:hidden; isolation:isolate; position:relative; min-height:625px; display:flex; align-items:center; background:radial-gradient(ellipse at 79% 60%,#76101965, transparent 42%),radial-gradient(ellipse at 17% 10%,#21232b8c,transparent 54%),#0b0c10; }
+    .hero::after { content:""; position:absolute; z-index:-1; inset:auto -10% -155px 39%; height:380px; transform:rotate(-10deg); background:repeating-linear-gradient(0deg, transparent 0 33px,#ffffff09 34px 35px),repeating-linear-gradient(90deg, transparent 0 100px,#ffffff08 101px 102px); mask-image:linear-gradient(to top,#000,transparent); }
+    .hero-grid { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr); gap:30px; align-items:center; width:100%; padding-top:68px; padding-bottom:84px; }
+    h1 { margin:22px 0 20px; max-width:740px; font-size:clamp(3.1rem,6.7vw,6rem); line-height:1.02; font-weight:950; letter-spacing:-.065em; }
+    h1 em { font-style:normal; color:var(--red); }
+    .lead { color:#c6c8d0; font-size:clamp(1.06rem,1.9vw,1.25rem); max-width:640px; margin:0 0 30px; }
+    .cta { display:inline-flex; padding:13px 19px; border-radius:9px; text-decoration:none; background:var(--red); color:white; font-weight:800; letter-spacing:.02em; box-shadow:0 10px 35px #e527382e; }
+    .cta:hover,.cta:focus { background:#ff3349; }
+    .micro { margin:18px 0 0; font-size:.86rem; color:var(--muted); }
+    .orb { width:min(100%,400px); aspect-ratio:1; margin:auto; position:relative; display:grid; place-items:center; }
+    .orb:before { content:""; position:absolute; inset:12%; border-radius:50%; border:2px solid #ffffff22; box-shadow:0 0 0 25px #ffffff06, 0 0 0 52px #e5273812,0 0 90px #e5273820; }
+    .orb:after { content:""; position:absolute; inset:7%; border-radius:50%; background:conic-gradient(from 240deg, transparent 0deg, #e52738 90deg,#ff6674 165deg,transparent 166deg); mask:radial-gradient(farthest-side, transparent calc(100% - 8px),black calc(100% - 7px)); opacity:.9; transform:rotate(-18deg); }
+    .orb-text { position:relative; z-index:1; text-align:center; }
+    .orb-text strong { display:block; font-size:clamp(2.3rem,4vw,3.3rem); font-weight:950; letter-spacing:.095em; text-shadow:0 0 26px #000; }
+    .orb-text strong span { color:var(--red); }
+    .orb-text small { display:block; margin-top:3px; font-size:.71rem; letter-spacing:.31em; color:#abb0bc; font-weight:700; }
+    main section { padding:78px 0; }
+    .eyebrow { color:#ff6e7b; text-transform:uppercase; font-size:.77rem; letter-spacing:.17em; font-weight:850; }
+    h2 { margin:10px 0 13px; font-size:clamp(2.1rem,4vw,3.25rem); line-height:1.15; letter-spacing:-.043em; }
+    .section-lead { max-width:650px; margin:0 0 30px; color:var(--muted); font-size:1.04rem; }
+    .features { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:17px; }
+    .feature { min-height:200px; padding:26px; border-radius:14px; background:linear-gradient(155deg,#202129,#121318); border:1px solid #ffffff13; }
+    .feature .number { display:block; color:#f25b6b; font-weight:900; letter-spacing:.12em; font-size:.8rem; margin-bottom:20px; }
+    .feature h3 { font-size:1.25rem; letter-spacing:-.02em; margin:0 0 9px; }
+    .feature p { color:#aeb0b9; margin:0; font-size:.96rem; }
+    .about { border-top:1px solid #ffffff10; border-bottom:1px solid #ffffff10; background:#111217; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:55px; align-items:center; }
+    .about p { color:#bec0c9; max-width:650px; }
+    .statement { border-left:3px solid var(--red); padding:14px 0 14px 24px; font-size:clamp(1.3rem,2.8vw,2rem); line-height:1.35; font-weight:800; letter-spacing:-.02em; }
+    footer { padding:29px 0 38px; }
+    footer .foot { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; color:#999ca7; font-size:.88rem; }
+    footer .foot strong { color:#eee; letter-spacing:.12em; }
+    @media(max-width:800px) { .hero-grid { grid-template-columns:1fr; padding-top:64px; } .orb { width:270px; margin-top:14px; } .features { grid-template-columns:1fr 1fr; } .about-grid { grid-template-columns:1fr; gap:20px; } }
+    @media(max-width:520px) { .nav { min-height:68px; } .brand { font-size:1.15rem; } .nav-links { gap:12px; } .nav-links a { font-size:.8rem; } .wrap { padding-left:20px; padding-right:20px; } .features { grid-template-columns:1fr; } main section { padding:58px 0; } .hero-grid { gap:10px; } .orb { width:230px; } }
+    @media(prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="brand" aria-label="REVLINE home">REV<span>LINE</span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="#features">The app</a><a href="#about">About</a></nav>
+    </div>
+  </header>
+  <div id="top" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="label">In development</span>
+        <h1>Built for<br>the <em>drive.</em></h1>
+        <p class="lead">REVLINE is building a home for the automotive community—show off your garage, discover meets, explore the marketplace, and connect with fellow enthusiasts.</p>
+        <a class="cta" href="#features">Explore the vision</a>
+        <p class="micro">Mobile app for iPhone and Android · Development underway</p>
+      </div>
+      <div class="orb" aria-hidden="true"><div class="orb-text"><strong>REV<span>LINE</span></strong><small>DRIVEN TO CONNECT</small></div></div>
+    </div>
+  </div>
+  <main>
+    <section id="features">
+      <div class="wrap">
+        <span class="eyebrow">One community. Every kind of build.</span>
+        <h2>More than a garage.</h2>
+        <p class="section-lead">From daily drivers to weekend projects, REVLINE is designed around the people, cars, and experiences that bring automotive culture together.</p>
+        <div class="features">
+          <article class="feature"><span class="number">01 / GARAGE</span><h3>Your build, your story</h3><p>Create vehicle profiles, share photos, and keep your garage in one place.</p></article>
+          <article class="feature"><span class="number">02 / COMMUNITY</span><h3>Connect and discover</h3><p>Share updates, explore other drivers' projects, and find automotive events.</p></article>
+          <article class="feature"><span class="number">03 / MARKETPLACE</span><h3>Built for enthusiasts</h3><p>Discover vehicles, parts, and automotive listings from the community.</p></article>
+          <article class="feature"><span class="number">04 / MEETS</span><h3>Find your next meet</h3><p>Explore car meets and events submitted through a verified organizer process.</p></article>
+          <article class="feature"><span class="number">05 / SERVICES</span><h3>Work with the pros</h3><p>A planned way to connect with automotive businesses and request services.</p></article>
+          <article class="feature"><span class="number">06 / TRUST</span><h3>Community comes first</h3><p>We're developing tools for reporting, moderation, and verified social connections.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="about">
+      <div class="wrap about-grid">
+        <div><span class="eyebrow">About REVLINE</span><h2>Made for people who live for cars.</h2><p>REVLINE is an automotive social and marketplace application currently in development. Our initial launch focus is New York and New Jersey, with room to grow.</p><p>Features described on this site are planned or under testing and may change before public release.</p></div>
+        <div class="statement">Every car has a story.<br>Every driver belongs somewhere.</div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap foot"><div><strong>REVLINE</strong> · Automotive community app</div><div>Website preview · App in development</div></div></footer>
+</body>
+</html>
